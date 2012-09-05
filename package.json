@@ -1,0 +1,24 @@
+{
+  "name": "cantina-amino",
+  "version": "1.0.0-dev",
+  "private": true,
+  "description": "enables a Cantina app to be auto-clustered by Amino",
+  "main": "index.js",
+  "peerDependencies": {
+    "cantina": "git+ssh://git@github.com:cantina/cantina.git#1.x"
+  },
+  "dependencies": {
+    "amino": "~1.1.2"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/amino/cantina-amino.git"
+  },
+  "author": "Carlos Rodriguez <carlos@s8f.org> (http://s8f.org/)"
+}
