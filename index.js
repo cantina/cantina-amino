@@ -13,7 +13,10 @@ exports.init = function (app, done) {
 
 exports.ready = function (app, done) {
   var conf = app.conf.get('amino');
-  app.http.once('listening', done);
+  app.http.once('listening', function () {
+    console.log(app.service.spec + ' started');
+    done();
+  });
   var service = conf.service;
   if (!service) {
     var pkgInfo = require(app.pkgPath);
