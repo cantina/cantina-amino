@@ -3,7 +3,13 @@ var amino = require('amino');
 exports.name = 'amino';
 
 exports.dependencies = {
-  'http': '1.x'
+  http: '1.x'
+};
+
+exports.defaults = {
+  service: {
+    name: 'app'
+  }
 };
 
 exports.init = function (app, done) {
@@ -17,10 +23,8 @@ exports.ready = function (app, done) {
     console.log(app.service.spec + ' started');
     done();
   });
-  var service = conf.service;
-  if (!service) {
-    var pkgInfo = require(app.pkgPath);
-    service = pkgInfo.name + '@' + pkgInfo.version;
+  if (!conf.service.version) {
+    conf.service.version = require(app.pkgPath).version;
   }
-  app.service = app.amino.createService(service, app.http);
+  app.service = app.amino.createService(conf.service.name + '@' + conf.service.version, app.http);
 };
