@@ -1,9 +1,20 @@
-var cantina = require('cantina')
-  , plugin = require('../')
+var app = require('cantina'),
+    assert = require('assert'),
+    util = require('util');
 
 describe('basic test', function () {
+  before(function (done) {
+    app.load(done);
+  });
+
   it('works', function (done) {
-    var app = cantina.createApp(['http', plugin], function (err) {
+    require(app.plugins.http);
+    require('../');
+
+    app.conf.set('amino:silent', true);
+
+    app.init(function (err) {
+      assert.ifError(err);
       assert(app.service.spec.host);
       assert(app.service.spec.port);
       done();
