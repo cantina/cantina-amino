@@ -1,6 +1,6 @@
 {
   "name": "cantina-amino",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
   "description": "enables a Cantina app to be auto-clustered by Amino",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "cantina": "git+ssh://git@github.com:cantina/cantina.git#2.x"
   },
   "dependencies": {
-    "amino": "~1.1.2"
+    "amino": "~1.1.3"
   },
   "devDependencies": {
     "mocha": "*",
