@@ -12,7 +12,8 @@
   },
   "devDependencies": {
     "mocha": "*",
-    "cantina": "git+ssh://git@github.com:cantina/cantina.git#2.x"
+    "cantina": "git+ssh://git@github.com:cantina/cantina.git#2.x",
+    "amino-queue": "~0.0.1"
   },
   "scripts": {
     "test": "make test"
