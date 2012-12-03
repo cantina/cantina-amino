@@ -32,6 +32,26 @@ Configuration
 }
 ```
 
+Using a non-core amino plugin
+-----------------------------
+
+```js
+
+var app = require('cantina')
+  , queue = require('amino-queue')
+
+app.on('amino:init', function (amino) {
+  amino.use(queue, {options...});
+});
+
+require('cantina-amino');
+
+app.on('init', function () {
+  // app.amino is available
+});
+app.init();
+```
+
 - - -
 
 ### Developed by [Terra Eclipse](http://www.terraeclipse.com)
