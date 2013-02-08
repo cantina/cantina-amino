@@ -4,9 +4,6 @@
   "private": true,
   "description": "enables a Cantina app to be auto-clustered by Amino",
   "main": "index.js",
-  "peerDependencies": {
-    "cantina": "git+ssh://git@github.com:cantina/cantina.git#2.x"
-  },
   "dependencies": {
     "amino": "~1.1.3"
   },
