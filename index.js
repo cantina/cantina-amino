@@ -21,12 +21,17 @@ app.on('init', function (done) {
 });
 
 app.on('ready', function (done) {
-  app.http.once('listening', function () {
-    if (!conf.silent) {
-      console.log(app.service.spec + ' started');
-    }
+  if (app.http) {
+    app.http.once('listening', function () {
+      if (!conf.silent) {
+        console.log(app.service.spec + ' started');
+      }
+      done();
+    });
+    var conf = app.conf.get('amino');
+    app.service = app.amino.createService(conf.service.name + '@' + conf.service.version, app.http);
+  }
+  else {
     done();
-  });
-  var conf = app.conf.get('amino');
-  app.service = app.amino.createService(conf.service.name + '@' + conf.service.version, app.http);
+  }
 });
