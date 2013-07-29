@@ -6,7 +6,7 @@ by [Amino](https://github.com/amino/amino).
 
 Dependencies
 ------------
-- **http** - The core http Cantina plugin.
+- **app.server** must be a valid server object.
 
 Provides
 --------
@@ -16,10 +16,10 @@ Provides
 Configuration
 -------------
 - **service** - A service name and version.
-- **silent** - Don't to console.log any startup messages.
 - **...** - All amino configuration will be passed to `amino.init()`.
 
 **Defaults**
+
 ```js
 {
   amino: {
@@ -32,7 +32,7 @@ Configuration
 }
 ```
 
-Using a non-core amino plugin
+Using an amino plugin
 -----------------------------
 
 ```js
@@ -40,16 +40,18 @@ Using a non-core amino plugin
 var app = require('cantina')
   , queue = require('amino-queue')
 
-app.on('amino:init', function (amino) {
-  amino.use(queue, {options...});
-});
+app.boot(function (err) {
+  if (err) throw err;
 
-require('cantina-amino');
+  // Load cantina-amino, which exposes `app.amino`.
+  require('cantina-amino');
 
-app.on('init', function () {
-  // app.amino is available
+  // Use plugins.
+  app.amino.use(queue, {options...});
+
+  // Start the app.
+  app.start();
 });
-app.init();
 ```
 
 - - -
@@ -61,7 +63,7 @@ strategy firm located in Aptos, CA and Washington, D.C.
 - - -
 
 ### License: MIT
-Copyright (C) 2012 Terra Eclipse, Inc. ([http://www.terraeclipse.com](http://www.terraeclipse.com))
+Copyright (C) 2013 Terra Eclipse, Inc. ([http://www.terraeclipse.com](http://www.terraeclipse.com))
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
