@@ -9,9 +9,12 @@
   "dependencies": {
     "amino": "~1.1.5"
   },
+  "peerDependencies": {
+    "cantina": "~4.1.0"
+  },
   "devDependencies": {
     "mocha": "~1.12.0",
-    "cantina": "~4.0.0",
+    "cantina": "~4.1.0",
     "amino-queue": "~0.0.4"
   },
   "scripts": {
