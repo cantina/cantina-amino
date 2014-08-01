@@ -1,9 +1,6 @@
 {
   "name": "cantina-amino",
   "version": "4.1.0",
-  "publishConfig": {
-    "registry": "https://npm-registry.terraeclipse.com"
-  },
   "description": "Enables a Cantina app to be auto-clustered by Amino",
   "main": "cantina-amino.js",
   "dependencies": {
@@ -24,5 +21,11 @@
     "type": "git",
     "url": "git://github.com/amino/cantina-amino.git"
   },
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  ],
   "author": "Carlos Rodriguez <carlos@s8f.org> (http://s8f.org/)"
 }
