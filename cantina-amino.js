@@ -1,5 +1,4 @@
-var amino = require('amino')
-  , conf;
+var amino = require('amino');
 
 module.exports = function (app) {
   // Default conf.
@@ -13,7 +12,7 @@ module.exports = function (app) {
   });
 
   // Get conf.
-  conf = app.conf.get('amino');
+  var conf = app.conf.get('amino');
 
   // Init amino.
   if (conf) {
