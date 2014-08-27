@@ -1,6 +1,6 @@
 {
   "name": "cantina-amino",
-  "version": "4.1.4",
+  "version": "4.1.5",
   "description": "Enables a Cantina app to be auto-clustered by Amino",
   "main": "cantina-amino.js",
   "dependencies": {
