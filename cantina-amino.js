@@ -21,7 +21,7 @@ module.exports = function (app) {
 
     // Create service when app is started.
     if (app.server && conf.service) {
-      app.hook('start').add(function (done) {
+      app.hook('start').last(500, function (done) {
         app.server.once('listening', function () {
           app.log(app.service.spec + ' started');
           done();
